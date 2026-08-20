@@ -46,9 +46,11 @@ func (s *Scheduler) Submit(job *Job) bool {
 		}
 		// Replace the lowest.
 		s.jobs[minIdx] = job
+		s.sortJobs()
 		return true
 	}
 	s.jobs = append(s.jobs, job)
+	s.sortJobs()
 	return true
 }
 
